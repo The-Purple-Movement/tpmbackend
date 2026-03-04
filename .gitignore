@@ -15,9 +15,9 @@ log.txt
 Pipfile.lock
 env3.*
 env
-docs_build
+docs_buildc:\Users\Umar\.gemini\antigravity\brain\4fe49192-08db-412d-aabe-8f1fa47549c9\prd_centralized_backend.md
 site_build
-venv
+tpm-venv
 docs.zip
 archive.zip
 .env.*
@@ -30,3 +30,8 @@ archive.zip
 .DS_Store
 
 .codspeed
+prd_centralized_backend.md
+task_api_implementation.md
+.gitignore
+.gitignore
+docs/api_reference.md

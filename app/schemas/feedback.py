@@ -1,23 +1,25 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, Field
+
 
 class FeedbackCreate(BaseModel):
-    name: str
-    email: EmailStr
+    site_id: str
+    rating: int = Field(..., ge=1, le=5, description="Rating from 1 to 5")
     message: str
 
     class Config:
         json_schema_extra = {
             "example": {
-                "name": "Umar",
-                "email": "umar@email.com",
-                "message": "The website onboarding was smooth!"
+                "site_id": "tpm-website",
+                "rating": 4,
+                "message": "The website is clean and easy to navigate. Would love more content on campaigns."
             }
         }
 
+
 class FeedbackResponse(BaseModel):
     id: int
-    name: str
-    email: EmailStr
+    site_id: str
+    rating: int
     message: str
 
     class Config:

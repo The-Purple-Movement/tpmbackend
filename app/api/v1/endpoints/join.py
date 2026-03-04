@@ -6,6 +6,7 @@ from app.services.join_service import submit_join
 
 router = APIRouter()
 
+
 def get_db():
     db = SessionLocal()
     try:
@@ -13,12 +14,18 @@ def get_db():
     finally:
         db.close()
 
+
 @router.post(
     "/",
     response_model=JoinResponse,
     status_code=status.HTTP_201_CREATED,
     summary="Request to Join Community",
-    description="Users can request to join the TPM community"
+    description=(
+        "Submit a join request for the TPM community. "
+        "Provide your category (individual / organisation / government), "
+        "what defines you (dropdown), what you want to share, and an optional link. "
+        "Toggle `is_anonymous` to stay anonymous — otherwise name, email, and phone are required."
+    )
 )
 def create_join(data: JoinCreate, db: Session = Depends(get_db)):
     return submit_join(db, data)
