@@ -3,8 +3,8 @@ from sqlalchemy import Column, Integer, String, JSON, DateTime, Boolean
 from app.db.session import Base
 
 
-class ForumJoin(Base):
-    __tablename__ = "forum_join_requests"
+class AICJoin(Base):
+    __tablename__ = "aic_join_requests"
 
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String, nullable=False)

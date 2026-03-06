@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import feedback, join, members, forum_join
+from app.api.v1.endpoints import feedback, join, members, aic_join
 
 api_router = APIRouter()
 
@@ -22,7 +22,7 @@ api_router.include_router(
 )
 
 api_router.include_router(
-    forum_join.router,
-    prefix="/forum-join",
-    tags=["Forum Join Requests"]
+    aic_join.router,
+    prefix="/aic/join",
+    tags=["AI+Compassion Join"]
 )

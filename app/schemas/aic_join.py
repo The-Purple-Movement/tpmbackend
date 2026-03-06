@@ -4,7 +4,7 @@ import re
 import json
 
 # This is for when a user submits the form. (The In data)
-class ForumJoinCreate(BaseModel):
+class AICJoinCreate(BaseModel):
     first_name: str = Field(alias="firstName")
     last_name: str = Field(alias="lastName")
     email: EmailStr
@@ -65,7 +65,7 @@ class ForumJoinCreate(BaseModel):
     )
 
 # This is for when the API replies back to the frontend after successfully saving. (The Out Data)
-class ForumJoinResponse(BaseModel):
+class AICJoinResponse(BaseModel):
     id: int
     first_name: str
     last_name: str
