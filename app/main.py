@@ -17,6 +17,7 @@ app.add_middleware(
     allow_origins=[
         "https://tpm-web-kohl.vercel.app",
         "https://compassionai.netlify.app",
+        "https://ai-compassion.netlify.app", # arjun-ms demo URL
         "http://localhost:3000",
         "http://localhost:3001",
     ],
