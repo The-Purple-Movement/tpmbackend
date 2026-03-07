@@ -18,6 +18,7 @@ env
 docs_buildc:\Users\Umar\.gemini\antigravity\brain\4fe49192-08db-412d-aabe-8f1fa47549c9\prd_centralized_backend.md
 site_build
 tpm-venv
+venv
 docs.zip
 archive.zip
 .env.*
