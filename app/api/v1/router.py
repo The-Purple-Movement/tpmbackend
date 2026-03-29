@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import feedback, join, members, aic_join
+from app.api.v1.endpoints import feedback, join, members, aic_join, bs_auth
 
 api_router = APIRouter()
 
@@ -25,4 +25,10 @@ api_router.include_router(
     aic_join.router,
     prefix="/aic/join",
     tags=["AI+Compassion Join"]
+)
+
+api_router.include_router(
+    bs_auth.router,
+    prefix="/bs",
+    tags=["BeyondSyllabus Auth"]
 )
