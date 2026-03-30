@@ -12,14 +12,20 @@ from app.services.bs_auth_service import (
     update_profile, change_password,
 )
 
+from app.core.rate_limit import RateLimiter
+
+
 router = APIRouter()
 
+# Initialize the rate limiter (5 requests per 60 seconds)
+login_limiter = RateLimiter(requests_limit=5, window_seconds=60)
 
 @router.post(
     "/register",
     response_model=TokenResponse,
     status_code=status.HTTP_201_CREATED,
     summary="Register a new user",
+    dependencies=[Depends(login_limiter)] 
 )
 def register(data: UserRegister, db: Session = Depends(get_db)):
     return register_user(db, data)
@@ -29,6 +35,7 @@ def register(data: UserRegister, db: Session = Depends(get_db)):
     "/login",
     response_model=TokenResponse,
     summary="Login with email and password",
+    dependencies=[Depends(login_limiter)]
 )
 def login(data: UserLogin, db: Session = Depends(get_db)):
     return login_user(db, data)
@@ -68,6 +75,7 @@ def update_me(
 @router.post(
     "/change-password",
     summary="Change password",
+    dependencies=[Depends(login_limiter)]
 )
 def change_pwd(
     data: ChangePasswordRequest,

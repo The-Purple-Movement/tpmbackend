@@ -13,6 +13,7 @@ from app.core.security import (
 from app.core.config import ACCESS_TOKEN_EXPIRE_MINUTES, REFRESH_TOKEN_EXPIRE_DAYS
 
 
+# helper function to generate access and refresh tokens
 def _build_tokens(user_id: str) -> dict:
     token_data = {"sub": user_id}
     return {

@@ -9,6 +9,9 @@ from sqlalchemy.pool import StaticPool
 # Add project root to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+# Mark that we are in a testing environment (used to bypass rate limiting)
+os.environ["TESTING"] = "True"
+
 from app.main import app
 from app.core.deps import get_db, get_current_user
 from app.db.session import Base
